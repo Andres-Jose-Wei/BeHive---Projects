@@ -12,7 +12,6 @@ import com.anjowe.behive.domain.Project;
 import com.anjowe.behive.services.ProjectService;
 
 @RestController
-@CrossOrigin
 public class ProjectController {
 
 	private ProjectService projectService;
