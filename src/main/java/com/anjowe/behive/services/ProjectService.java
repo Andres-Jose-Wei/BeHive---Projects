@@ -29,4 +29,6 @@ public interface ProjectService {
 
 	public boolean fillSpotsOnTeam(Position position, List<String> usernames);
 
+	public Mono<Project> getProjectByOwner(String username);
+
 }

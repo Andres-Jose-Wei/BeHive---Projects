@@ -2,10 +2,10 @@ package com.anjowe.behive.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anjowe.behive.domain.Project;
@@ -24,7 +24,7 @@ public class ProjectController {
 	}
 
 	@GetMapping("/project/{projectName}")
-	public Project getProject(@RequestParam(name = "projectName") String projectName) {
+	public Project getProject(@PathVariable(name = "projectName") String projectName) {
 		return projectService.getProject(projectName);
 	}
 
@@ -32,5 +32,10 @@ public class ProjectController {
 	public Mono<Boolean> createProject(@RequestBody Project project, @RequestHeader("USER_NAME") String username) {
 		project.setOwner(username);
 		return projectService.createOrSaveProject(project);
+	}
+
+	@GetMapping("/project/owner")
+	public Mono<Project> getProjectByUser(@RequestHeader("USER_NAME") String username) {
+		return projectService.getProjectByOwner(username);
 	}
 }

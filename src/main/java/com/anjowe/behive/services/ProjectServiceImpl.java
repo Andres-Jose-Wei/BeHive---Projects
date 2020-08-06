@@ -90,4 +90,9 @@ public class ProjectServiceImpl implements ProjectService {
 		return project;
 	}
 
+	@Override
+	public Mono<Project> getProjectByOwner(String username) {
+		return this.projectRepo.findbyOwner(username);
+	}
+
 }
