@@ -2,6 +2,13 @@ server:
   port: ${custome_port:8095}
   
 spring:
+  main:
+    allow-bean-definition-overriding: true
+    banner-mode: "off"
+  data:
+    mongodb:
+      uri: ${mongodb_url}
+      database: ${mongodb_database} 
   rabbitmq:
     host: ${rabbitmq_host:localhost}
     port: ${rabbitmq_port:5672}

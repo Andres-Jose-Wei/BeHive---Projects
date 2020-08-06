@@ -24,10 +24,9 @@ public class ProjectServiceImpl implements ProjectService {
 	}
 
 	@Override
-	public boolean createOrSaveProject(Project project) {
+	public Mono<Boolean> createOrSaveProject(Project project) {
 		project.setStatus("Recruiting");
-		this.projectRepo.save(project);
-		return true;
+		return this.projectRepo.save(project).map(proj -> true);
 	}
 
 	@Override

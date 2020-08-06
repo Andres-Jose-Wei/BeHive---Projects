@@ -5,11 +5,13 @@ import java.util.List;
 import com.anjowe.behive.domain.Position;
 import com.anjowe.behive.domain.Project;
 
+import reactor.core.publisher.Mono;
+
 public interface ProjectService {
 
 	public Project getProject(String projectName);
 
-	public boolean createOrSaveProject(Project project);
+	public Mono<Boolean> createOrSaveProject(Project project);
 
 	public boolean deleteProject(Project project);
 

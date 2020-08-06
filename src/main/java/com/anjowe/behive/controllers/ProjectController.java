@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anjowe.behive.domain.Project;
 import com.anjowe.behive.services.ProjectService;
 
+import reactor.core.publisher.Mono;
+
 @RestController
+@CrossOrigin
 public class ProjectController {
 
 	private ProjectService projectService;
@@ -27,7 +30,7 @@ public class ProjectController {
 	}
 
 	@PostMapping("/project/create")
-	public boolean createProject(@RequestBody Project project) {
+	public Mono<Boolean> createProject(@RequestBody Project project) {
 		return projectService.createOrSaveProject(project);
 	}
 }
