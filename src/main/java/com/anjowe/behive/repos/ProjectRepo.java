@@ -9,5 +9,5 @@ import reactor.core.publisher.Mono;
 
 @Repository
 public interface ProjectRepo extends ReactiveMongoRepository<Project, String> {
-	Mono<Project> findbyOwner(String owner);
+	Mono<Project> findByOwner(String owner);
 }
