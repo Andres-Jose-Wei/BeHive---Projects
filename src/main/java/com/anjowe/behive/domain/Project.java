@@ -24,6 +24,7 @@ public class Project {
 
 	@Id
 	private String name;
+	private String owner;
 	private String status;
 	private String description;
 	private boolean isPublic;
